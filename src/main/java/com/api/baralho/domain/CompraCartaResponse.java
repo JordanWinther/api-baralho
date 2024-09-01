@@ -4,11 +4,11 @@ import java.util.List;
 
 
 
-public class DrawCardResponse {
+public class CompraCartaResponse {
 
 	private boolean success;
     private String deck_id;
-    private List<Card> cards;
+    private List<Carta> cards;
     private int remaining;
     
     
@@ -25,10 +25,10 @@ public class DrawCardResponse {
 	public void setDeck_id(String deck_id) {
 		this.deck_id = deck_id;
 	}
-	public List<Card> getCards() {
+	public List<Carta> getCards() {
 		return cards;
 	}
-	public void setCards(List<Card> cards) {
+	public void setCards(List<Carta> cards) {
 		this.cards = cards;
 	}
 	public int getRemaining() {

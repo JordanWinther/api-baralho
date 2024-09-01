@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.baralho.adpter.BaralhoApiAdapter;
 import com.api.baralho.aplication.BaralhoUseCase;
 import com.api.baralho.domain.Baralho;
+import com.api.baralho.domain.CompraCartaResponse;
 
 
 
@@ -39,14 +40,19 @@ public class Controller {
 	    }
 	 
 	 	@GetMapping("/criarBaralho")
-	    public void criarBaralho() {
-	 		baralhoUseCase.criarBaralho();
+	    public String criarBaralho() {
+	 		return baralhoUseCase.criarBaralho();
+		   
+	    }
+	 
+	 	@GetMapping("/comprarCartas")
+	    public ResponseEntity<CompraCartaResponse>  comprarCartas(@RequestParam String id, @RequestParam int quantidade) {
+	 		CompraCartaResponse cartasResponse = baralhoUseCase.ComprarCarta(id, quantidade);
+			return ResponseEntity.status(HttpStatus.OK).body(cartasResponse);
 		 	
 	     
 	        
 	    }
-	 
-	 
 	 
 	 
 	 
