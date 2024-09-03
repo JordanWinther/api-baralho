@@ -13,6 +13,17 @@ public class CompraCartaResponse {
     
     
     
+	public CompraCartaResponse() {
+		super();
+	}
+	
+	public CompraCartaResponse(boolean success, String deck_id, List<Carta> cards, int remaining) {
+		super();
+		this.success = success;
+		this.deck_id = deck_id;
+		this.cards = cards;
+		this.remaining = remaining;
+	}
 	public boolean isSuccess() {
 		return success;
 	}

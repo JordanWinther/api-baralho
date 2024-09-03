@@ -31,4 +31,7 @@ public class BaralhoApiAdapter  implements BaralhoUseCase {
 		
 	}
 
+
+	
+
 }

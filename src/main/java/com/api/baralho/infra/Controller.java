@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.baralho.adpter.BaralhoApiAdapter;
 import com.api.baralho.aplication.BaralhoUseCase;
+import com.api.baralho.aplication.Jogador;
+import com.api.baralho.aplication.JogoUseCase;
 import com.api.baralho.domain.Baralho;
 import com.api.baralho.domain.CompraCartaResponse;
 
@@ -24,10 +26,12 @@ import com.api.baralho.domain.CompraCartaResponse;
 public class Controller {
 
 	private BaralhoUseCase baralhoUseCase;
+	private JogoUseCase jogoUseCase;
 	
-	 public Controller( BaralhoUseCase baralhoUseCase) {
+	 public Controller( BaralhoUseCase baralhoUseCase, JogoUseCase jogoUseCase) {
 		
 		this.baralhoUseCase = baralhoUseCase;
+		this.jogoUseCase = jogoUseCase;
 	}
 	 
 	 
@@ -49,6 +53,15 @@ public class Controller {
 	    public ResponseEntity<CompraCartaResponse>  comprarCartas(@RequestParam String id, @RequestParam int quantidade) {
 	 		CompraCartaResponse cartasResponse = baralhoUseCase.ComprarCarta(id, quantidade);
 			return ResponseEntity.status(HttpStatus.OK).body(cartasResponse);
+		 	
+	     
+	        
+	    }
+	 	
+	 	@GetMapping("/jogar")
+	    public ResponseEntity<Jogador>  jogar(@RequestParam String id, @RequestParam int quantidade) {
+	 		 
+			return ResponseEntity.ok(jogoUseCase.jogar(id, quantidade));
 		 	
 	     
 	        
