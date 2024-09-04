@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.api.baralho.aplication.Jogador;
 import com.api.baralho.aplication.JogoService;
+import com.api.baralho.aplication.repository.JogadorRepository;
 import com.api.baralho.aplication.useCase.BaralhoUseCase;
 import com.api.baralho.domain.Carta;
 import com.api.baralho.domain.CompraCartaResponse;
@@ -42,6 +43,9 @@ public class JogarServiceTest {
 	@Mock
     private BaralhoUseCase baralhoUseCase;
 	
+	@Mock
+	private JogadorRepository jogadorRepository;
+	
 	@InjectMocks
 	private JogoService jogoService;
 	
@@ -65,6 +69,7 @@ public class JogarServiceTest {
         response.setCards(listaDeCartas);
         
         when(baralhoUseCase.ComprarCarta(anyString(), anyInt())).thenReturn(response);
+        
         
 		Jogador jogador = jogoService.jogar("String", 5);
 		

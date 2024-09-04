@@ -40,9 +40,9 @@ public class AdapterTest {
         baralho.setDeck_id("teste-deck-id");
         when(apiExchange.CriarBaralho()).thenReturn(Optional.of(baralho));
 
-        String deckId = adapter.criarBaralho();
+        Baralho novoBaralho = adapter.criarBaralho();
 
-        assertEquals("teste-deck-id", deckId);
+        assertEquals("teste-deck-id", novoBaralho.getDeck_id());
         verify(apiExchange, times(1)).CriarBaralho();
     }
 
@@ -60,7 +60,7 @@ public class AdapterTest {
     public void ComprarCarta_Success() {
         
         CompraCartaResponse response = new CompraCartaResponse();
-        when(apiExchange.ComprarCarta("test-deck-id", 5)).thenReturn(Optional.of(response));
+        when(apiExchange.ComprarCarta("teste-deck-id", 5)).thenReturn(Optional.of(response));
 
         
         CompraCartaResponse result = adapter.ComprarCarta("teste-deck-id", 5);

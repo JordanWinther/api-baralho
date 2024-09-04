@@ -44,7 +44,7 @@ public class Controller {
 	    }
 	 
 	 	@GetMapping("/criarBaralho")
-	    public String criarBaralho() {
+	    public Baralho criarBaralho() {
 	 		return baralhoUseCase.criarBaralho();
 		   
 	    }

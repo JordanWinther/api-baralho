@@ -1,6 +1,5 @@
 package com.api.baralho.aplication;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +7,21 @@ import java.util.Map;
 
 import com.api.baralho.domain.Carta;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Jogador {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Carta> cartas;
 	private Integer totalPontos = 0;
 	

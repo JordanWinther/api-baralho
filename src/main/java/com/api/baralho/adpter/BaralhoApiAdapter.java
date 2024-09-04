@@ -20,9 +20,9 @@ public class BaralhoApiAdapter  implements BaralhoUseCase {
 	}
 	
 	
-	public String criarBaralho() {
+	public Baralho criarBaralho() {
 		Optional<Baralho> baralho = apiExchange.CriarBaralho();
-		return	baralho.orElseThrow(() -> new ConexaoFailException("")).getDeck_id();
+		return	baralho.orElseThrow(() -> new ConexaoFailException(""));
 	}
 	
 	public CompraCartaResponse  ComprarCarta(String deck_id, int qtdCartas){
