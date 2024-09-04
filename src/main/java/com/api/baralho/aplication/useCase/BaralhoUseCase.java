@@ -1,4 +1,4 @@
-package com.api.baralho.aplication;
+package com.api.baralho.aplication.useCase;
 
 
 

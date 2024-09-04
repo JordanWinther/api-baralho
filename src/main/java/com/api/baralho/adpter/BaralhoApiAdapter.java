@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.api.baralho.aplication.BaralhoUseCase;
 import com.api.baralho.aplication.Exception.ConexaoFailException;
+import com.api.baralho.aplication.useCase.BaralhoUseCase;
 import com.api.baralho.domain.Baralho;
 import com.api.baralho.domain.CompraCartaResponse;
 

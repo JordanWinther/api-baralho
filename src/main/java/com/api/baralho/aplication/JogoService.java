@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.api.baralho.aplication.useCase.BaralhoUseCase;
+import com.api.baralho.aplication.useCase.JogoUseCase;
 import com.api.baralho.domain.CompraCartaResponse;
 
 @Service
@@ -20,10 +22,12 @@ public class JogoService implements JogoUseCase {
 	}
 	
 	
+	
 	public String criarBaralho() {
 		
 		return useCaseBaralho.criarBaralho();
 	}
+	
 	
 	
 	public CompraCartaResponse comprarCartas(String deckId,int quantidadeDeCartas) {
@@ -31,6 +35,7 @@ public class JogoService implements JogoUseCase {
 		CompraCartaResponse response = useCaseBaralho.ComprarCarta(deckId, quantidadeDeCartas);
 		return response;
 	}
+	
 	
 	
 	public List<Jogador> montarMaos(String deckId,int quantidadeDeCartas) {
@@ -47,6 +52,8 @@ public class JogoService implements JogoUseCase {
 		return listaJogador;		
 	}
 	
+	
+	
 	public Jogador contarPontos(List<Jogador> listaJogador) {
 		
 		int maiorValor = listaJogador.stream()
@@ -57,6 +64,7 @@ public class JogoService implements JogoUseCase {
 		List<Jogador> jogadorList = listaJogador.stream()
 						  						.filter(j -> j.getTotalPontos() == maiorValor)
 						  						.collect(Collectors.toList());
+		
 		Jogador jogadorGanhador = new Jogador();
 		for (Jogador jogador : jogadorList) {
 			jogadorGanhador = jogador; 
@@ -66,9 +74,9 @@ public class JogoService implements JogoUseCase {
 	}
 
 	
+	
 	public Jogador jogar(String deck_id, int count) {
 		
-		//String baralhoId = criarBaralho();
 		
 		List<Jogador> listaJogador = montarMaos(deck_id, count);
 		

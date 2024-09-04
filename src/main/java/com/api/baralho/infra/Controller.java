@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.baralho.adpter.BaralhoApiAdapter;
-import com.api.baralho.aplication.BaralhoUseCase;
 import com.api.baralho.aplication.Jogador;
-import com.api.baralho.aplication.JogoUseCase;
+import com.api.baralho.aplication.useCase.BaralhoUseCase;
+import com.api.baralho.aplication.useCase.JogoUseCase;
 import com.api.baralho.domain.Baralho;
 import com.api.baralho.domain.CompraCartaResponse;
 
